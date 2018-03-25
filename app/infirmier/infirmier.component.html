@@ -1,0 +1,15 @@
+<mat-card class="infirmier-card" alx-dropzone (alx-ondrop)="patientDrop($event)">
+  <mat-card-header>
+    <img class="mat-card-avatar"  src="{{getImage()}}" alt="Photo de {{getNom()}} {{getPrenom()}} "/>
+    <mat-card-title>{{getNom()}}</mat-card-title>
+    <mat-card-subtitle>{{getPrenom()}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="mat-app-background basic-container">
+        <pre>{{getAdresse()}}</pre>
+      <mat-accordion>
+        <app-patient [patient] = patient *ngFor="let patient of getPatientList()"></app-patient>
+      </mat-accordion>
+    </div>
+  </mat-card-content>
+</mat-card>

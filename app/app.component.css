@@ -1,0 +1,7 @@
+.body{
+  margin: 0px;
+}
+
+body > .alx-cloneNode {
+  opacity: 0.7;
+}

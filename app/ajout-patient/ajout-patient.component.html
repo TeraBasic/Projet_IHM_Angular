@@ -1,0 +1,48 @@
+<mat-card class="ajout-patients">
+  <mat-card-header>
+    <mat-card-title>Ajout patient</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <form class="ajout-patients-form" (ngSubmit)="onSubmit(f); f.reset()" #f="ngForm">
+
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="first-name">
+          <input name="prénom" matInput ngModel placeholder="Prénom" required>
+        </mat-form-field></td>
+        <td><mat-form-field class="last-name">
+          <input name="nom" matInput ngModel placeholder="Nom" required>
+        </mat-form-field></td>
+      </tr></table>
+
+      <p>
+        <mat-form-field class="example-full-width">
+          <input name="numéro" matInput ngModel placeholder="Numéro" pattern="^$|^\d+$">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input name="rue" matInput ngModel required placeholder="Rue">
+        </mat-form-field>
+      </p>
+
+      <td><mat-form-field class="example-full-width">
+        <input name="postalCode" matInput ngModel maxlength="5" #postalCode required placeholder="Code Postal" value="" pattern="^$|^[0-9]{5}$">
+        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+      </mat-form-field></td>
+
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width">
+          <input name="ville" matInput ngModel placeholder="Ville" required pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s-]{3,60}$">
+        </mat-form-field></td>
+
+        <td><mat-form-field class="example-full-width">
+          <input name="nir" matInput ngModel length="15" #nir placeholder="Numéro sécurité sociale" value="" required pattern="[1-4]\d\d((0[1-9])|(1[0-2]))\d[0-9AB]\d{8}">
+          <mat-hint align="end">{{nir.value.length}} / 15</mat-hint>
+        </mat-form-field></td>
+      </tr></table>
+
+      <mat-action-row>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!f.valid" class="btn btn-default">Valider</button>
+      </mat-action-row>
+    </form>
+  </mat-card-content>
+</mat-card>

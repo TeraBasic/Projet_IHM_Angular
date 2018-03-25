@@ -1,0 +1,12 @@
+<mat-expansion-panel [alx-draggable]="{nir: getNir(), someOther: 34}" (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{getNom()}} {{getPrenom()}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{getNir()}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <pre>{{getAdresse()}}</pre>
+</mat-expansion-panel>
